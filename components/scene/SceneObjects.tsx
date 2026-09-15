@@ -772,7 +772,7 @@ const FORMS: Record<
   Shape,
   (props: {
     at: number;
-  }) => JSX.Element
+  }) => React.ReactElement
 > = {
   web: WebForm,
   webgl: WebglForm,
