@@ -75,17 +75,21 @@ type CoreMaterialRef =
   | THREE.MeshPhysicalMaterial
   | null;
 
+/* =====================================================
+   MILESTONE MOTION
+===================================================== */
+
 function useMilestoneMotion(
   at: number,
-  group: React.RefObject<THREE.Group>,
+  group: React.RefObject<THREE.Group | null>,
   structure: React.MutableRefObject<
     MaterialRef[]
   >,
   core: React.MutableRefObject<
     CoreMaterialRef[]
   >,
-  light: React.RefObject<THREE.PointLight>,
-  accent?: React.RefObject<THREE.Group>
+  light: React.RefObject<THREE.PointLight | null>,
+  accent?: React.RefObject<THREE.Group | null>
 ) {
   const level = useRef(0);
 
