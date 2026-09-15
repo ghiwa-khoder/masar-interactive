@@ -3,7 +3,7 @@ export default function Hero() {
     <section className="section hero-section" id="top">
       <div className="hero-copy">
         <p className="eyebrow">
-          CREATIVE DIGITAL STUDIO
+          CREATIVE WEB / MOTION / WEBGL
         </p>
 
         <h1>
@@ -15,16 +15,15 @@ export default function Hero() {
         </h1>
 
         <p className="hero-description">
-          MASAR Interactive creates bold digital experiences
-          where design, motion, and technology move together.
-          From immersive websites to interactive 3D experiences,
-          we build digital work designed to be explored — not
-          just viewed.
+          MASAR Interactive turns ideas into digital paths —
+          combining creative development, motion, and WebGL to
+          build websites people don’t just scroll through, but
+          experience.
         </p>
       </div>
 
       <div className="scroll-cue">
-        <span>SCROLL TO EXPLORE</span>
+        <span>FOLLOW THE PATH</span>
         <div className="scroll-line" />
       </div>
     </section>

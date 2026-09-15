@@ -1,24 +1,24 @@
 const projects = [
   {
-    number: "01",
     title: "MASAR LAB 001",
     category: "WEBGL / CREATIVE DEVELOPMENT",
     description:
-      "An experimental 3D experience exploring movement, geometry, interaction, and digital space.",
+      "A self-initiated WebGL study exploring how geometry, motion, and interaction can shape a digital experience in the browser.",
+    status: "EXPERIMENT",
   },
   {
-    number: "02",
     title: "CONCEPT 001",
     category: "DIGITAL REIMAGINING / INTERACTIVE WEB",
     description:
-      "A self-initiated digital reinterpretation exploring a new visual and interactive direction for an existing brand.",
+      "A digital reinterpretation of an existing brand, exploring how its identity could translate into a more interactive web direction.",
+    status: "CONCEPT",
   },
   {
-    number: "03",
     title: "COMING NEXT",
-    category: "EXPERIMENT / DIGITAL EXPERIENCE",
+    category: "MASAR LAB",
     description:
-      "New interactive concepts and digital experiments are currently in development.",
+      "New self-initiated experiments are being built as we continue exploring what interaction, motion, and 3D can do on the web.",
+    status: "IN PROGRESS",
   },
 ];
 
@@ -30,16 +30,16 @@ export default function Work() {
           <p className="eyebrow">SELECTED WORK</p>
 
           <h2>
-            IDEAS IN
+            BUILT ALONG
             <br />
-            <span>MOTION.</span>
+            <span>THE WAY.</span>
           </h2>
         </div>
 
         <p className="work-intro">
-          A growing collection of interactive experiences,
-          experiments, and digital concepts exploring new ways
-          brands can live on the web.
+          MASAR Lab is where we test ideas before they become
+          patterns — through self-initiated concepts, WebGL studies,
+          and interactive experiments built directly in the browser.
         </p>
       </div>
 
@@ -47,13 +47,13 @@ export default function Work() {
         {projects.map((project) => (
           <article
             className="project-item"
-            key={project.number}
+            key={project.title}
           >
-            <span className="project-number">
-              {project.number}
-            </span>
-
             <div className="project-info">
+              <p className="project-status">
+                {project.status}
+              </p>
+
               <h3>{project.title}</h3>
               <p>{project.category}</p>
 
@@ -61,8 +61,6 @@ export default function Work() {
                 {project.description}
               </p>
             </div>
-
-            <span className="project-arrow">↗</span>
           </article>
         ))}
       </div>

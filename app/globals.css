@@ -208,7 +208,7 @@ textarea:focus-visible {
 
 
 /* =========================================
-   MASAR NAVBAR V2
+   MASAR NAVBAR
 ========================================= */
 
 .masar-navbar {
@@ -359,9 +359,7 @@ textarea:focus-visible {
 
   display: inline-flex;
 
-  align-items: flex-start;
-
-  gap: 4px;
+  align-items: center;
 
   color:
     rgba(
@@ -418,18 +416,6 @@ textarea:focus-visible {
   transform: scaleX(1);
 }
 
-.masar-nav-index {
-  position: relative;
-
-  top: -4px;
-
-  color: var(--lime);
-
-  font-size: 6px;
-
-  letter-spacing: 0;
-}
-
 
 /* NAV CTA */
 
@@ -440,7 +426,7 @@ textarea:focus-visible {
 
   align-items: center;
 
-  gap: 14px;
+  justify-content: center;
 
   min-height: 40px;
 
@@ -469,29 +455,12 @@ textarea:focus-visible {
     border-color 220ms ease;
 }
 
-.masar-nav-cta span {
-  color: var(--lime);
-
-  font-size: 14px;
-
-  transition:
-    color 220ms ease,
-    transform 220ms ease;
-}
-
 .masar-nav-cta:hover {
   color: var(--navy-deep);
 
   background: var(--lime);
 
   border-color: var(--lime);
-}
-
-.masar-nav-cta:hover span {
-  color: var(--navy-deep);
-
-  transform:
-    translate(2px, -2px);
 }
 
 
@@ -819,16 +788,10 @@ textarea:focus-visible {
   display: grid;
 
   grid-template-columns:
-    48px
     minmax(250px, 0.95fr)
     minmax(260px, 1fr);
 
-  gap:
-    clamp(
-      20px,
-      2vw,
-      38px
-    );
+  gap: 36px;
 
   align-items: center;
 
@@ -847,15 +810,6 @@ textarea:focus-visible {
 .service-item:hover {
   border-bottom-color:
     var(--lime-dim);
-}
-
-.service-number {
-  color: var(--lime);
-
-  font-size: 10px;
-  font-weight: 600;
-
-  letter-spacing: 0.08em;
 }
 
 .service-content {
@@ -997,16 +951,13 @@ textarea:focus-visible {
 .project-item {
   display: grid;
 
-  grid-template-columns:
-    70px
-    minmax(0, 1fr)
-    auto;
+  grid-template-columns: 1fr;
 
-  gap: 30px;
+  gap: 0;
 
   align-items: center;
 
-  padding: 30px 0;
+  padding: 28px 0;
 
   border-bottom:
     1px solid
@@ -1021,12 +972,21 @@ textarea:focus-visible {
     var(--lime-dim);
 }
 
-.project-number {
-  color: var(--lime);
+.project-status {
+  margin-bottom: 10px;
 
-  font-size: 11px;
+  color:
+    var(--lime) !important;
 
-  font-weight: 500;
+  font-size:
+    9px !important;
+
+  font-weight: 600;
+
+  letter-spacing:
+    0.14em !important;
+
+  text-transform: uppercase;
 }
 
 .project-info h3 {
@@ -1051,7 +1011,7 @@ textarea:focus-visible {
 }
 
 .project-info
-> p:not(.project-description) {
+> p:not(.project-description):not(.project-status) {
   margin-top: 8px;
 
   color: var(--lime);
@@ -1087,33 +1047,12 @@ textarea:focus-visible {
     0 !important;
 }
 
-.project-arrow {
-  color: var(--grey);
-
-  font-size: 28px;
-
-  transition:
-    color 0.25s ease,
-    transform 0.25s ease;
-}
-
-.project-item:hover
-.project-info h3,
-.project-item:hover
-.project-arrow {
-  color: var(--lime);
-}
-
 .project-item:hover
 .project-info h3 {
+  color: var(--lime);
+
   transform:
     translateX(5px);
-}
-
-.project-item:hover
-.project-arrow {
-  transform:
-    translate(4px, -4px);
 }
 
 
@@ -1619,22 +1558,12 @@ a:hover > span:last-child {
 
   align-items: center;
 
-  gap: 11px;
-
   color: var(--grey);
 
   font-size: 9px;
   font-weight: 600;
 
   letter-spacing: 0.12em;
-}
-
-.quote-label small {
-  color: var(--lime);
-
-  font-size: 8px;
-
-  font-weight: 600;
 }
 
 
@@ -1804,7 +1733,7 @@ a:hover > span:last-child {
 
 
 /* =========================================
-   GET QUOTE BUTTON
+   SUBMIT BUTTON
 ========================================= */
 
 .quote-submit {
@@ -1819,9 +1748,9 @@ a:hover > span:last-child {
 
   align-items: center;
 
-  justify-content: space-between;
+  justify-content: center;
 
-  gap: 35px;
+  gap: 0;
 
   border:
     1px solid
@@ -1846,15 +1775,6 @@ a:hover > span:last-child {
     box-shadow 0.3s ease;
 }
 
-.quote-submit-arrow {
-  font-size: 21px;
-
-  font-weight: 400;
-
-  transition:
-    transform 0.3s ease;
-}
-
 .quote-submit:hover {
   background:
     var(--ivory);
@@ -1873,12 +1793,6 @@ a:hover > span:last-child {
       96,
       0.12
     );
-}
-
-.quote-submit:hover
-.quote-submit-arrow {
-  transform:
-    translate(4px, -4px);
 }
 
 .quote-submit:disabled {
@@ -1915,45 +1829,6 @@ a:hover > span:last-child {
 
 
 /* =========================================
-   REDUCED MOTION
-========================================= */
-
-@media (
-  prefers-reduced-motion:
-  reduce
-) {
-  * {
-    animation-duration:
-      0.01ms !important;
-
-    transition-duration:
-      0.01ms !important;
-  }
-
-  .service-item:hover h3,
-  .project-item:hover h3,
-  .project-item:hover
-  .project-arrow,
-  .contact-mini-links
-  a:hover > span:last-child,
-  .quote-submit:hover,
-  .quote-submit:hover
-  .quote-submit-arrow {
-    transform: none;
-  }
-
-  .masar-navbar,
-  .masar-nav-mark,
-  .masar-nav-links a::after,
-  .masar-nav-cta,
-  .masar-nav-cta span,
-  .masar-nav-toggle span {
-    transition: none;
-  }
-}
-
-
-/* =========================================
    LARGE TABLET
 ========================================= */
 
@@ -1964,8 +1839,7 @@ a:hover > span:last-child {
   .services-section {
     min-height: auto;
 
-    grid-template-columns:
-      1fr;
+    grid-template-columns: 1fr;
 
     gap: 70px;
 
@@ -1989,8 +1863,7 @@ a:hover > span:last-child {
   }
 
   .contact-layout {
-    grid-template-columns:
-      1fr;
+    grid-template-columns: 1fr;
 
     gap: 75px;
   }
@@ -2028,9 +1901,7 @@ a:hover > span:last-child {
   max-width: 900px
 ) {
 
-  /* =====================================
-     MASAR NAVBAR V2 MOBILE
-  ===================================== */
+  /* MASAR NAVBAR MOBILE */
 
   .masar-navbar {
     height: 70px;
@@ -2164,8 +2035,6 @@ a:hover > span:last-child {
     align-items:
       flex-start;
 
-    gap: 12px;
-
     padding:
       17px 0;
 
@@ -2196,25 +2065,12 @@ a:hover > span:last-child {
       -0.04em;
   }
 
-  .masar-nav-mobile-panel
-  nav a span {
-    margin-top: 3px;
-
-    color:
-      var(--lime);
-
-    font-size: 8px;
-
-    letter-spacing: 0;
-  }
-
   .masar-nav-mobile-cta {
     display: flex;
 
     align-items: center;
 
-    justify-content:
-      space-between;
+    justify-content: center;
 
     padding-top: 18px;
 
@@ -2366,13 +2222,9 @@ a:hover > span:last-child {
   }
 
   .service-item {
-    grid-template-columns:
-      40px
-      minmax(0, 1fr);
+    grid-template-columns: 1fr;
 
-    gap:
-      10px
-      20px;
+    gap: 0;
 
     min-height: auto;
 
@@ -2428,12 +2280,9 @@ a:hover > span:last-child {
   }
 
   .project-item {
-    grid-template-columns:
-      40px
-      minmax(0, 1fr)
-      auto;
+    grid-template-columns: 1fr;
 
-    gap: 15px;
+    gap: 0;
 
     padding: 28px 0;
   }
@@ -2496,13 +2345,9 @@ a:hover > span:last-child {
   }
 
   .service-item {
-    grid-template-columns:
-      32px
-      minmax(0, 1fr);
+    grid-template-columns: 1fr;
 
-    gap:
-      8px
-      12px;
+    gap: 0;
 
     padding: 24px 0;
   }
@@ -2668,10 +2513,7 @@ a:hover > span:last-child {
   }
 
   .project-item {
-    grid-template-columns:
-      30px
-      minmax(0, 1fr)
-      20px;
+    grid-template-columns: 1fr;
 
     padding: 24px 0;
   }
@@ -2720,5 +2562,39 @@ a:hover > span:last-child {
     flex-direction: column;
 
     gap: 8px;
+  }
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (
+  prefers-reduced-motion:
+  reduce
+) {
+  * {
+    animation-duration:
+      0.01ms !important;
+
+    transition-duration:
+      0.01ms !important;
+  }
+
+  .service-item:hover h3,
+  .project-item:hover h3,
+  .contact-mini-links
+  a:hover > span:last-child,
+  .quote-submit:hover {
+    transform: none;
+  }
+
+  .masar-navbar,
+  .masar-nav-mark,
+  .masar-nav-links a::after,
+  .masar-nav-cta,
+  .masar-nav-toggle span {
+    transition: none;
   }
 }

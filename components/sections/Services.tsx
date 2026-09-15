@@ -1,33 +1,28 @@
 const services = [
   {
-    number: "01",
     title: "INTERACTIVE WEBSITES",
     description:
-      "Custom digital experiences built around interaction, storytelling, and movement — designed to make brands impossible to ignore.",
+      "Websites shaped around how people move, explore, and interact — combining clear structure with purposeful motion and responsive digital experiences.",
   },
   {
-    number: "02",
     title: "CREATIVE DEVELOPMENT",
     description:
-      "High-end frontend development combining modern frameworks, animation, and creative coding to turn ambitious concepts into polished digital products.",
+      "Frontend development that turns ambitious visual ideas into fast, responsive, production-ready experiences using modern web technologies.",
   },
   {
-    number: "03",
     title: "3D & WEBGL EXPERIENCES",
     description:
-      "Immersive browser-based environments using WebGL and 3D technology to create depth, exploration, and memorable interactions.",
+      "Browser-based 3D scenes and WebGL interactions that add depth, spatial movement, and exploration where the concept genuinely calls for it.",
   },
   {
-    number: "04",
     title: "MOTION & INTERACTION",
     description:
-      "Scroll experiences, transitions, micro-interactions, and motion systems designed to make every part of a website feel responsive and alive.",
+      "Scroll behavior, transitions, micro-interactions, and motion systems designed to guide attention and make the interface feel connected.",
   },
   {
-    number: "05",
     title: "DIGITAL CONCEPTS",
     description:
-      "Experimental website concepts and digital reinterpretations exploring how brands, products, and ideas could exist differently online.",
+      "Original web concepts and digital reinterpretations used to explore new directions for brands, products, spaces, and ideas online.",
   },
 ];
 
@@ -38,12 +33,12 @@ export default function Services() {
       id="services"
     >
       <div className="services-header">
-        <p className="eyebrow">WHAT WE DO</p>
+        <p className="eyebrow">WHAT WE BUILD</p>
 
         <h2>
-          BUILT TO
+          DIFFERENT
           <br />
-          <span>MOVE.</span>
+          <span>PATHS.</span>
         </h2>
       </div>
 
@@ -51,12 +46,8 @@ export default function Services() {
         {services.map((service) => (
           <article
             className="service-item"
-            key={service.number}
+            key={service.title}
           >
-            <span className="service-number">
-              {service.number}
-            </span>
-
             <div className="service-content">
               <h3>{service.title}</h3>
               <p>{service.description}</p>

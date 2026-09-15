@@ -133,7 +133,6 @@ export default function Contact() {
       }
 
       formElement.reset();
-
       setSuccess(true);
     } catch (err) {
       setError(
@@ -153,9 +152,7 @@ export default function Contact() {
     >
       <div className="contact-layout">
 
-        {/* =================================
-            LEFT SIDE
-        ================================= */}
+        {/* LEFT SIDE */}
 
         <div className="contact-heading">
           <p className="eyebrow">
@@ -163,19 +160,19 @@ export default function Contact() {
           </p>
 
           <h2>
-            LET&apos;S BUILD
+            READY TO
             <br />
-            SOMETHING
+            START A
             <br />
-            <span>MEMORABLE.</span>
+            <span>NEW PATH?</span>
           </h2>
 
           <p className="contact-intro">
-            Have a project, a brand, or
-            simply an idea worth exploring?
-            Tell us where you want to go.
-            We&apos;ll help shape the digital
-            path to get there.
+            Tell us what you&apos;re building,
+            where you want it to go, and what
+            should make it different. We&apos;ll
+            help turn the idea into a clear
+            digital direction.
           </p>
 
           <LocalTime />
@@ -197,14 +194,14 @@ export default function Contact() {
             </a>
 
             <a
-              href="https://www.instagram.com/maser.interactive/"
+              href="https://www.instagram.com/masar.interactive/"
               target="_blank"
               rel="noopener noreferrer"
             >
               <span>INSTAGRAM</span>
 
               <strong>
-                @maser.interactive
+                @masar.interactive
               </strong>
 
               <span aria-hidden="true">
@@ -229,9 +226,7 @@ export default function Contact() {
           </div>
         </div>
 
-        {/* =================================
-            PROJECT INQUIRY FORM
-        ================================= */}
+        {/* PROJECT INQUIRY FORM */}
 
         <div className="quote-panel">
 
@@ -249,7 +244,7 @@ export default function Contact() {
             </div>
 
             <span>
-              GET A QUOTE
+              LET&apos;S TALK
             </span>
           </div>
 
@@ -260,15 +255,12 @@ export default function Contact() {
             onSubmit={handleInquirySubmit}
           >
 
-            {/* =============================
-                NAME + EMAIL
-            ============================= */}
+            {/* NAME + EMAIL */}
 
             <div className="quote-field-row">
 
               <label className="quote-field">
                 <span className="quote-label">
-                  <small>01</small>
                   YOUR NAME
                 </span>
 
@@ -283,7 +275,6 @@ export default function Contact() {
 
               <label className="quote-field">
                 <span className="quote-label">
-                  <small>02</small>
                   EMAIL
                 </span>
 
@@ -298,14 +289,11 @@ export default function Contact() {
 
             </div>
 
-            {/* =============================
-                PROJECT TYPE
-            ============================= */}
+            {/* PROJECT TYPE */}
 
             <label className="quote-field">
 
               <span className="quote-label">
-                <small>03</small>
                 WHAT ARE WE CREATING?
               </span>
 
@@ -348,16 +336,13 @@ export default function Contact() {
 
             </label>
 
-            {/* =============================
-                BUDGET + TIMELINE
-            ============================= */}
+            {/* BUDGET + TIMELINE */}
 
             <div className="quote-field-row">
 
               <label className="quote-field">
 
                 <span className="quote-label">
-                  <small>04</small>
                   ESTIMATED BUDGET
                 </span>
 
@@ -398,7 +383,6 @@ export default function Contact() {
               <label className="quote-field">
 
                 <span className="quote-label">
-                  <small>05</small>
                   TIMELINE
                 </span>
 
@@ -438,9 +422,7 @@ export default function Contact() {
 
             </div>
 
-            {/* =============================
-                MESSAGE
-            ============================= */}
+            {/* MESSAGE */}
 
             <label
               className="
@@ -449,7 +431,6 @@ export default function Contact() {
               "
             >
               <span className="quote-label">
-                <small>06</small>
                 TELL US ABOUT THE IDEA
               </span>
 
@@ -461,9 +442,7 @@ export default function Contact() {
               />
             </label>
 
-            {/* =============================
-                SUBMIT
-            ============================= */}
+            {/* SUBMIT */}
 
             <div className="quote-submit-wrap">
 
@@ -507,13 +486,6 @@ export default function Contact() {
                     ? "SENDING..."
                     : "SEND INQUIRY"}
                 </span>
-
-                <span
-                  className="quote-submit-arrow"
-                  aria-hidden="true"
-                >
-                  ↗
-                </span>
               </button>
 
             </div>
@@ -522,9 +494,7 @@ export default function Contact() {
         </div>
       </div>
 
-      {/* =================================
-          FOOTER
-      ================================= */}
+      {/* FOOTER */}
 
       <footer className="footer">
 
@@ -533,7 +503,7 @@ export default function Contact() {
         </span>
 
         <span>
-          DESIGN / MOTION / TECHNOLOGY
+          CREATIVE WEB / MOTION / WEBGL
         </span>
 
       </footer>

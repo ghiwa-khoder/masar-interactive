@@ -107,15 +107,11 @@ export default function Navbar() {
         className="masar-nav-links"
         aria-label="Main navigation"
       >
-        {NAV_ITEMS.map((item, index) => (
+        {NAV_ITEMS.map((item) => (
           <a
             key={item.href}
             href={item.href}
           >
-            <span className="masar-nav-index">
-              0{index + 1}
-            </span>
-
             <span>{item.label}</span>
           </a>
         ))}
@@ -128,10 +124,6 @@ export default function Navbar() {
         className="masar-nav-cta"
       >
         START A PROJECT
-
-        <span aria-hidden="true">
-          ↗
-        </span>
       </a>
 
       {/* MOBILE BUTTON */}
@@ -155,16 +147,12 @@ export default function Navbar() {
 
       <div className="masar-nav-mobile-panel">
         <nav aria-label="Mobile navigation">
-          {NAV_ITEMS.map((item, index) => (
+          {NAV_ITEMS.map((item) => (
             <a
               key={item.href}
               href={item.href}
               onClick={() => setMenuOpen(false)}
             >
-              <span>
-                0{index + 1}
-              </span>
-
               {item.label}
             </a>
           ))}
@@ -176,10 +164,6 @@ export default function Navbar() {
           onClick={() => setMenuOpen(false)}
         >
           START A PROJECT
-
-          <span aria-hidden="true">
-            ↗
-          </span>
         </a>
       </div>
     </header>

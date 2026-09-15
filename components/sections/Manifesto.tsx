@@ -2,30 +2,30 @@ export default function Manifesto() {
   return (
     <section className="section manifesto-section" id="about">
       <div className="manifesto-copy">
-        <p className="eyebrow">OUR APPROACH</p>
+        <p className="eyebrow">WHY MASAR</p>
 
         <h2>
-          WE DON&apos;T JUST
+          EVERY IDEA
           <br />
-          BUILD WEBSITES.
+          NEEDS A
           <br />
-          WE CREATE
-          <br />
-          <span>EXPERIENCES.</span>
+          <span>PATH.</span>
         </h2>
 
         <div className="manifesto-text">
-          <p>The web shouldn&apos;t feel static.</p>
-
           <p>
-            At MASAR Interactive, we combine creative direction,
-            thoughtful design, motion, and modern web technology
-            to transform ideas into memorable digital experiences.
+            MASAR means path — and that idea shapes how we build.
           </p>
 
           <p>
-            Every interaction has a purpose. Every movement tells
-            part of the story.
+            We take a digital idea from its first direction through
+            design, development, motion, and interaction until it
+            becomes a complete web experience.
+          </p>
+
+          <p>
+            Nothing moves just to decorate the screen. Every
+            interaction has a role in guiding the user forward.
           </p>
         </div>
       </div>
