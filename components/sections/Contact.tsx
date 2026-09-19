@@ -209,19 +209,7 @@ export default function Contact() {
               </span>
             </a>
 
-            <a href="tel:+96181310887">
-              <span>
-                PHONE / WHATSAPP
-              </span>
-
-              <strong>
-                +961 81 310 887
-              </strong>
-
-              <span aria-hidden="true">
-                ↗
-              </span>
-            </a>
+           
 
           </div>
         </div>
