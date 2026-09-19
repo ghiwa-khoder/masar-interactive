@@ -12,6 +12,7 @@ import {
   scroll,
   damp,
 } from "./useScrollProgress";
+import PathFlare from "./PathFlare";
 
 /* =====================================================
    MASAR CURVE
@@ -95,6 +96,25 @@ const MILESTONES = [
   0.62,
   0.86,
 ];
+
+/*
+ * Where the round tube hands off to PathFlare's
+ * ribbon. Kept here, exported, and imported by
+ * PathFlare — a single number, not two copies that
+ * could quietly drift apart.
+ */
+export const RIBBON_START = 0.88;
+
+/*
+ * The path is drawn slightly ahead of the reader's
+ * literal scroll position, so it always leads rather
+ * than trails. Both the round tube below and
+ * PathFlare's ribbon read from this same function,
+ * so the handoff between them lines up exactly.
+ */
+export function getPathReveal(t: number) {
+  return Math.min(t * 1.055 + 0.035, 1);
+}
 
 /* =====================================================
    PATH TRANSFORM
@@ -316,6 +336,18 @@ export default function MasarPath() {
           .count
       : 0;
 
+  /*
+   * The round tube is parameterised uniformly along
+   * the curve, same as PathFlare's ribbon, so the
+   * curve parameter RIBBON_START maps directly onto
+   * a fraction of this geometry's index count too.
+   * Capping the tube's draw range here — instead of
+   * always drawing the full length — is what stops
+   * it from running underneath the ribbon once that
+   * takes over.
+   */
+  const tubeRevealCap = RIBBON_START;
+
   /* =================================================
      WAYPOINT POSITIONS
   ================================================= */
@@ -365,16 +397,16 @@ export default function MasarPath() {
           1
         );
 
-      /*
-       * Keep the path slightly
-       * ahead of the reader.
-       */
-
       const reveal =
+        getPathReveal(t);
+
+      // Never draw the round tube past where the
+      // ribbon begins — the two are never visible
+      // in the same stretch of path at once.
+      const tubeReveal =
         Math.min(
-          t * 1.055 +
-            0.035,
-          1
+          reveal,
+          tubeRevealCap
         );
 
       /* =========================
@@ -390,7 +422,7 @@ export default function MasarPath() {
             0,
             Math.floor(
               indexCount *
-                reveal
+                tubeReveal
             )
           );
       }
@@ -408,7 +440,7 @@ export default function MasarPath() {
             0,
             Math.floor(
               glowIndexCount *
-                reveal
+                tubeReveal
             )
           );
       }
@@ -420,10 +452,23 @@ export default function MasarPath() {
       if (
         tip.current
       ) {
+        // Once the ribbon takes over, its own arrow
+        // carries the "leading edge" — this marker
+        // fades out rather than travel underneath it.
+        const tipVisibility =
+          reveal < RIBBON_START
+            ? 1
+            : 1 -
+              smoothstepLocal(
+                (reveal -
+                  RIBBON_START) /
+                  0.04
+              );
+
         tip.current.position.copy(
           masarCurve.getPointAt(
             Math.min(
-              reveal,
+              tubeReveal,
               0.999
             )
           )
@@ -443,9 +488,10 @@ export default function MasarPath() {
           );
 
         const targetScale =
-          1 +
-          nearestEnergy *
-            0.75;
+          (1 +
+            nearestEnergy *
+              0.75) *
+          tipVisibility;
 
         tipScale.current =
           scroll.reduced
@@ -465,9 +511,10 @@ export default function MasarPath() {
           tipGlow.current
         ) {
           tipGlow.current.intensity =
-            1.2 +
-            nearestEnergy *
-              5.5;
+            (1.2 +
+              nearestEnergy *
+                5.5) *
+            tipVisibility;
         }
       }
 
@@ -721,7 +768,7 @@ export default function MasarPath() {
       )}
 
       {/* ==========================================
-          LEADING EDGE
+          LEADING EDGE (round-tube phase only)
       ========================================== */}
 
       <mesh ref={tip}>
@@ -752,6 +799,17 @@ export default function MasarPath() {
           decay={2}
         />
       </mesh>
+
+      {/* ==========================================
+          RIBBON + ARROW (final flare)
+      ========================================== */}
+
+      <PathFlare />
     </group>
   );
+}
+
+function smoothstepLocal(x: number) {
+  const c = THREE.MathUtils.clamp(x, 0, 1);
+  return c * c * (3 - 2 * c);
 }
